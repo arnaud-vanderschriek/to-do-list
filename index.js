@@ -3,10 +3,13 @@ const favicon = require('serve-favicon');
 const path = require('path');
 const bodyParser = require('body-parser');
 const session = require('cookie-session');
+const pathRoute = require('./route/router');
 
 
 const urlEncoderParser = bodyParser.urlencoded({ extended:false})
 const app = express();
+
+app.use('/route', pathRoute);
 
 app.use(session({secret: 'chocoCookie'}));    
 
@@ -28,12 +31,6 @@ app.use( (req, res, next) => {
 // définir la view "main.ejs" comme page principale. => '/'
 app.get('/', (req,res) => {
     res.render('main.ejs', {todo: req.session.todo} );
-})
-
-
-// définir une autre page 
-app.get('/contact', () => {
-    res.render('contact.ejs');
 })
 
 // ajouter une tache
