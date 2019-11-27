@@ -3,7 +3,7 @@ const favicon = require('serve-favicon');
 const path = require('path');
 const bodyParser = require('body-parser');
 const session = require('cookie-session');
-const pathRoute = require('./route/router');
+const pathRoute = require('./route/router');                             // assignation du fichier router.js a la variable pathRoute
 
 
 const urlEncoderParser = bodyParser.urlencoded({ extended:false})

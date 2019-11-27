@@ -1,9 +1,8 @@
 const express = require('express');
-const router = express.Router();
+const router = express.Router();            // utilisation de la methode "Router" d'"Express"
 
 
-// définir une autre page 
-router.get('/meteo', (req,res) => {
+router.get('/meteo', (req,res) => {         // app.get => router.get
     res.render('meteo.ejs');
 })
 
@@ -15,9 +14,5 @@ router.get('/poubelle', (req, res) => {
     res.render('poubelle.ejs');
 })
 
-router.get('/', (req,res) => {
-    res.render('main.ejs', {todo: req.session.todo} );
-})
 
-
-module.exports=router;
+module.exports = router;                        // page rendue accessible par  "export" et assigné a une variable 
