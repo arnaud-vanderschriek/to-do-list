@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>To-do list</title>
     <link rel="stylesheet" href="/css/style.css">   <!-- spécifier le chemin sans le dossier parent-->
 </head>
 <body>
-    <header>
-        <h1>Ma To-do List, yataaaaa!</h1>
+    <header class="container-fluid d-flex flex-column">
+        <h1 class="row justify-content-center">Ma To-do List, yataaaaa!</h1>
         <nav>
             <span><a href="/route/meteo">Méteo</a></span>
             <span><a href="/route/gif">Gif generator</a></span>
@@ -17,24 +18,43 @@
         </nav>
     </header>
     <main>
-        <div id="box1">
-            <form action="#" method="POST">
-                <label for="name">Tâche:</label><br>
-                <input type="text" name="name" id="name"><br>
-                <input type="submit">
+        <div class="container d-flex flex-column">
+            <div class="row justify-content-center align-items-center array  ">
+                <table>
+                    <thead>
+                        <tr align="center">
+                            <th>Tâche.</th>
+                            <th>Supprimer</th>
+                            <th>Modifier</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <% todo.forEach(function( todo, index ){ %>
+                    <tr>
+                        <td align="center"><%= todo %></td><td align="center"><a href="/supprimer/<%= index %>">✘</a></td><td align="center"><a href="/update/<%= index %>">&#10004</a></td>
+                    <% }); %> 
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <form class="row justify-content-center align-items-center" method="POST" action="#">
+                <div class="form-group col-12">
+                    <input type="text" class="form-control" name="name" placeholder="Entrez votre tâche.">
+                </div>
+                <div class="row col-12 justify-content-center">
+                    <button type="submit" class="btn btn-primary">Valider</button>
+                </div>
             </form>
-        </div>
-        <div id="box2">
-            <h2>Tâche</h2>
-            <ul>
-                <% todo.forEach(function(todo, index) { %>
-                   <li><a href="/supprimer/<%= index %>">✘</a> <%= todo %></li>
-                <% }); %>
-            </ul>
         </div>
     </main>
     <footer>
         <span><a href="">Contact</a></span>
-    </footer>   
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
+
+
+   

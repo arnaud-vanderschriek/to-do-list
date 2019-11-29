@@ -1,4 +1,4 @@
-html,body{
+html,body {
 
     margin:0;
     padding: 0;
@@ -6,49 +6,35 @@ html,body{
     flex-direction: column;
     flex-wrap: nowrap;
     height: 100vh;
-    background-color: #5c6f75;
+    background-color: #d0e3e9;
     color: white;
    
 }
-header{
-    
-    border: 1px solid blanchedalmond;
-    background-color: rgba(66, 83, 91, 0.4);
+header {
+    height: 20%;
+    background-color: rgba(0, 0, 0, 0.5);
 }
-h1, h2{
-    text-align: center;
-    text-shadow: 2px 2px black;
+header>h1, a {
+    text-shadow: 2px, 2px, 2px black;
 }
-nav{
-    text-align: right;
+main {
+    height: 70%;
+    color: black    ;
 }
-main{
-
-    height:100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    
+.array {
+    margin-top: 100px;
+    height: auto;
 }
-#box1{
-    
-    margin: auto;
-    height: 80%;
-    width: 100%;
-    border: 1px solid blanchedalmond;
-    border-radius: 10px;
-
+table {
+    border-collapse: collapse;
 }
-ul{
-    list-style: none;
+form {
+    margin-top: 100px;
 }
 
-#box2{
-    text-align: center;
-    width: 100%;
+.btn {
+    background-color: rgb(192, 190, 63);
+    border-color: rgb(192, 190, 63);
 }
-footer{
-    width: 100%;
-    background-color: #42545b;
-}
+
 
