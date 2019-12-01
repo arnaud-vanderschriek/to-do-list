@@ -6,35 +6,71 @@ html,body {
     flex-direction: column;
     flex-wrap: nowrap;
     height: 100vh;
-    background-color: #d0e3e9;
-    color: white;
+    background-image: url('../img/Black\ and\ Yellow\ Node\ wallpaper\ \ 4.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: rgb(255, 255, 255);
    
 }
+a{
+    color: rgb(245, 245, 245);
+    text-shadow: 2px 2px 2px gray;
+}
 header {
+
     height: 20%;
     background-color: rgba(0, 0, 0, 0.5);
 }
-header>h1, a {
+nav {
+    height: 100%;
+    display: flex;
+}
+#navbox {
+    width: 100%;
+}
+nav>span {
+   display: flex;
+}
+nav>a {
+
     text-shadow: 2px, 2px, 2px black;
+    vertical-align:  bottom;
 }
 main {
+
     height: 70%;
-    color: black    ;
+    color: rgb(228, 228, 238)   ;
 }
 .array {
     margin-top: 100px;
     height: auto;
 }
 table {
-    border-collapse: collapse;
+    border-spacing: 30px;
+}
+th {
+    border-style: 2px double  white;
 }
 form {
     margin-top: 100px;
+    display: flex;
 }
-
+.form-control {
+    border:2px solid gray;
+    width: 55%
+  
+}
 .btn {
-    background-color: rgb(192, 190, 63);
-    border-color: rgb(192, 190, 63);
+    background-color: rgb(160, 14, 14);
+    border-color: rgb(160, 14, 14);
 }
+.btn:hover{
+    background-color: rgb(192, 107, 50);
+    border-color: rgb(192, 107, 50);
+}
+footer {
 
+    height: 20%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
 
