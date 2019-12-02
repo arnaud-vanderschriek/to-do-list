@@ -27,29 +27,30 @@ app.use(express.static('views'))
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json());
 
+// ----------------------------------------- LOGIC CRUD -------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------
+
 
 app.use( (req, res, next) => {
     if(typeof(req.session.todo)=='undefined'){
         req.session.todo = [];
-
     }
-    
     next();
 })
 
 
 // définir la view "main.ejs" comme page principale. => '/'
 app.get('/', (req,res) => {
-
     res.render('main.ejs', {todo: req.session.todo, data:req.body.name});
 })
 
 // ajouter une tache
 app.post('/', urlEncoderParser, (req,res) => {    // urlEncoderParser permet de recupérer l'attribut name du formulaire (par la méthode POST dans ce cas)
-     let data = req.body.name
-    if(data !== '')
-    req.session.todo.push(req.body.name);
+    let data = req.body.name
+    if(data !== ''){
+        req.session.todo.push(req.body.name);
         res.render('main.ejs',{todo: req.session.todo,data:req.body.name})
+    }
 })
 
 // on supprime une tâche
@@ -61,15 +62,15 @@ app.get('/del/:id', (req,res) =>{
     res.render('main.ejs', {todo: req.session.todo, data:req.params.name});
 })
 
-
+// On update une tâche
 app.get('/up/:id',urlEncoderParser, (req, res) =>{               // A FAIRE !!!!!!!!!     Fonction Update....
-        data =req.session.todo[req.params.id]   
+        data =req.params.id 
         console.log( req.session.todo[req.params.id])
      
         if(req.params.id !==''){
             req.session.todo.splice(req.params.id,1)
         }
-        res.render('main.ejs', {todo: req.session.todo, data});
+        res.render('main.ejs', {todo: req.session.todo, data:req.params.name});
        
 })
 
@@ -78,4 +79,4 @@ app.use( (req, res) => {
     res.redirect('/');
 })
 
-app.listen(3000, () => console.log("server up"));
+app.listen(4000, () => console.log("server up"));
