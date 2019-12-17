@@ -41,7 +41,7 @@ app.use( (req, res, next) => {
 
 // définir la view "main.ejs" comme page principale. => '/'
 app.get('/', (req,res) => {
-    res.render('main.ejs', {todo: req.session.todo, data:req.body.name});
+    res.render('main.ejs', {todo: req.session.todo, data:req.params.id});
 })
 
 // ajouter une tache
@@ -55,22 +55,21 @@ app.post('/', urlEncoderParser, (req,res) => {    // urlEncoderParser permet de 
 
 // on supprime une tâche
 app.get('/del/:id', (req,res) =>{
-    data=req.params.id
+    // data = req.params.id
     if(req.params.id !== ''){
         req.session.todo.splice(req.params.id,1)
     }
-    res.render('main.ejs', {todo: req.session.todo, data:req.params.name});
+    res.render('main.ejs', {todo: req.session.todo, data:req.params.id});
 })
 
 // On update une tâche
-app.get('/up/:id',urlEncoderParser, (req, res) =>{               // A FAIRE !!!!!!!!!     Fonction Update....
-        data =req.params.id 
-        console.log( req.session.todo[req.params.id])
-     
-        if(req.params.id !==''){
-            req.session.todo.splice(req.params.id,1)
-        }
-        res.render('main.ejs', {todo: req.session.todo, data:req.params.name});
+app.get('/up/:id', (req, res) =>{               // A FAIRE !!!!!!!!!     Fonction Update....
+        
+    if(req.params.id !== ''){
+        req.session.todo.splice(req.params.id[1],1)
+        // console.log(req.session.todo[req.params.id])
+    }
+    res.render('main.ejs', {todo: req.session.todo, data:req.params.id});
        
 })
 

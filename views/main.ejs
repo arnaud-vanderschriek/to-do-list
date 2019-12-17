@@ -36,7 +36,7 @@
                     <tbody>
                         <% todo.forEach(function( todo, index ){ %>
                         <tr>
-                            <td align="center"><%= todo %></td><td align="center"><a href="/del/<%=index%>">✘</a></td><td align="center"><a href="/up/=<%index%>">&#10002</a></td><td align="center"><input type="date"></td>
+                            <td align="center"><%= todo %></td><td align="center"><a href="/del/<%=index%>">✘</a></td><td align="center"><a href="/up/=<%=index%>">&#10002</a></td><td align="center"><input type="date"></td>
                         <% }); %> 
                         </tr>
                     </tbody>
@@ -44,7 +44,7 @@
             </div>
             <form class="row justify-content-center align-items-center" method="POST" action="/">
                 <div class="row form-group col-12">
-                    <input type="text" class="form-control justify-content-center col-12" id='name' value="<%=data%>" name="name"  autofocus placeholder="Entrez votre tâche.">
+                    <input type="text" class="form-control justify-content-center col-12" id='name' value="<%data%>" name="name"  autofocus placeholder="Entrez votre tâche.">
                 </div>
                 <div class="row col-12 justify-content-center">
                     <button type="submit" class="btn btn-primary">valider</button>
